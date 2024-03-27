@@ -71,7 +71,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login isLoggedIn={isLoggedIn} handleLogin={handleLogin} />} />
         <Route path="/home" element={<Home products={products} setProducts={setProducts} handleLogOut={handleLogOut} isLoggedIn={isLoggedIn} />} />
-        <Route path="/addProduct" element={<AddProduct onAdd={handleAddProduct} />} />
+        <Route path="/addProduct" element={<AddProduct products={products} onAdd={handleAddProduct} />} />
       </Routes>
       <ToastContainer
         position="top-center"
