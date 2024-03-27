@@ -26,13 +26,11 @@ function Home({ products, setProducts, handleLogOut, isLoggedIn }) {
   }
 
   const handleDelete = (index) => {
-    const updatedProducts = [...filteredProducts];
-    updatedProducts.splice(index, 1);
+    // Filter out the product with the given index
+    const updatedProducts = products.filter((_, i) => i !== index);
+    setProducts(updatedProducts);
+    // Also update filtered products if needed
     setFilteredProducts(updatedProducts);
-    // Update the original products array in the parent component
-    const updatedProductsList = [...products];
-    updatedProductsList.splice(index, 1);
-    setProducts(updatedProductsList);
   }
 
   const Id = localStorage.getItem('Id');
@@ -94,6 +92,7 @@ function Home({ products, setProducts, handleLogOut, isLoggedIn }) {
                   <td>${product.price.toFixed(2)}</td>
                   <td>
                     <MdDelete onClick={() => handleDelete(index)} className="delete-icon" />
+                    {console.log(index)}
                   </td>
                 </tr>
               ))}

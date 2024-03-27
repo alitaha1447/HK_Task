@@ -9,7 +9,7 @@ function AddProduct({ products, onAdd }) {
   const [productName, setProductName] = useState('');
   const [price, setPrice] = useState('');
   const navigate = useNavigate();
-  console.log(products)
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ function AddProduct({ products, onAdd }) {
 
     // Check for duplicacy
     if (products.some(product => product.productName.toLowerCase() === productName.toLowerCase())) {
-      toast.error("Product with this name already exists.");
+      toast.warning("Product with this name already exists.");
       return;
     }
 
